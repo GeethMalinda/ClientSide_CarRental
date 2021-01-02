@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dashbord Customer</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="MDB/img/unnamed.jpg" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="MDB/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="MDB/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="MDB/css/style.css">
+
+    <link rel="stylesheet" href="css/CustomerDashbord.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g==" crossorigin="anonymous" />
+</head>
+<body onload="loadAllCars(),hidebooking()">
+<div id="modaldiv">
+
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Eazy <span style="color: crimson">Car</span></a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="UserMain.html">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+
+
+
+        </ul>
+        <!-- Links -->
+
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input id="tableSearch" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+<div>
+    <table class="mt-3 table table-striped table-responsive-md btn-table">
+
+
+        <tbody id="myTable">
+
+        </tbody>
+
+    </table>
+</div>
+
+<!--/////booking////-->
+<div id="bid">
+    <div  class="container">
+        <div class="card" >
+            <div class="card-header">
+                Booking
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img id="img" style="width: 500px" src="assests/SONATA-hero-option2-764A4983-640x354.jpg">
+                        <!-- Default input -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label class="mt-3" for="bookingcarname">Car</label>
+                                <input  type="text" id="bookingcarname" class="form-control disabled">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="md-form form-sm">
+                            <i class="far fa-calendar-alt fa-1.5x blue-text pr-2"> &nbsp;Pick Up</i>
+
+                        </div>
+                        <div id="date-picker" class="md-form md-outline input-with-post-icon datepicker">
+                            <input placeholder="Select date" type="text" id="piker" class="form-control">
+                            <label for="piker">Try me...</label>
+                            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+                        </div>
+                        <div id="time-picker" class="md-form md-outline input-with-post-icon datepicker">
+                            <input placeholder="Select date" type="text" id="piker2" class="form-control">
+                            <label for="piker">Try me...</label>
+                            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+                        </div>
+
+                        <div class="md-form form-sm">
+                            <i class="far fa-calendar-alt fa-1.5x green-text pr-2"> &nbsp;Drop Off</i>
+
+                        </div>
+                        <div id="date-picker2" class="md-form md-outline input-with-post-icon datepicker">
+                            <input placeholder="Select date" type="text" id="piker3" class="form-control">
+                            <label for="piker">Try me...</label>
+                            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+                        </div>
+                        <div id="time-picker2" class="md-form md-outline input-with-post-icon datepicker">
+                            <input placeholder="Select date" type="text" id="piker4" class="form-control">
+                            <label for="piker">Try me...</label>
+                            <i class="fas fa-calendar input-prefix" tabindex=0></i>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label class="mt-3" for="txtTotalFeeBooking">Total &nbsp;</label>
+                            <input  type="text" id="txtTotalFeeBooking" class="form-control disabled">
+                        </div>
+                        <div class="col-lg-4">
+                            <button id="book" type="button" class="btn btn-primary btn-rounded btn-block waves-effect">Book</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+
+                    <button onclick="show()" id="back" type="button" class="btn btn-success btn-rounded  waves-effect"><i class="fas fa-backward input-prefix" tabindex=0></i>
+                        Back</button>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="MDB/js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="MDB/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="MDB/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="MDB/js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript" src="js/CustomerDashbord.js"></script>
+
+<!--<script type="text/javascript" src="MDB/js/bootstrap-datetimepicker.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js" integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw==" crossorigin="anonymous"></script>
+
+<script>
+    $("#piker").datetimepicker({
+        timepicker:false,
+        datepicker:true,
+        format:'Y-m-d',
+        value:'2019-8-1',
+        theme:'dark',
+        weeks:true
+    })
+    $("#piker2").datetimepicker({
+        timepicker:true,
+        datepicker:false,
+        format:'H:i',
+        value:'09.45',
+        theme:'dark',
+        hour12:true,
+        steps:5
+    })
+    $("#piker3").datetimepicker({
+        timepicker:false,
+        datepicker:true,
+        format:'Y-m-d',
+        value:'2019-8-1',
+        theme:'dark',
+        weeks:true
+    })
+    $("#piker4").datetimepicker({
+        timepicker:true,
+        datepicker:false,
+        format:'H:i',
+        value:'09.45',
+        theme:'dark',
+        hour12:true,
+        steps:5
+    })
+    function hidebooking(){
+        $("#bid").hide();
+        // $("#bid").css("display", "none");
+        // $("#bid").css("display", "block");
+
+    }
+    function showbooking(){
+        $("#bid").show();
+    }
+
+</script>
+
+</body>
+</html>

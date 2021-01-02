@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Car Manage</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="MDB/img/unnamed.jpg" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="MDB/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="MDB/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="MDB/css/style.css">
+    <link rel="stylesheet" href="css/ManageCar.css">
+
+
+</head>
+<body onload="loadAllCars(),hideviewcar()">
+<!--//////////////////////////////////////////////////////////////nav////////////////////-->
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Eazy <span style="color: crimson">Car</span></a>
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+            aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="DashBord.html">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li id="Manageli" class="nav-item">
+                <a type="button" class="nav-link" href="#">Manage</a>
+            </li>
+            <li id="Viewli" class="nav-item">
+                <a type="button" class="nav-link" href="#">view</a>
+            </li>
+
+
+
+        </ul>
+        <!-- Links -->
+
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input id="tableSearch" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+    </div>
+    <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+<!--////////////////////////////////////////////////////navend/////////////////////////////-->
+
+
+<!--///////////////////////////manageforom////////////////////////////////////////-->
+<form id="formmanange" class="border border-light p-5">
+        <div class="form-row">
+            <div class="col-lg-6 mt-3">
+                <div class="form-group ml-3">
+                    <label class="font-weight-bold" for="txtRegisterNumber">RegisterNumber</label>
+                    <input placeholder="BJA-5180" type="text" class="form-control" id="txtRegisterNumber">
+                </div>
+
+                <div class="form-group ml-3">
+                    <label class="font-weight-bold" for="txtNumberOfPassengers">Number Of Passengers</label>
+                    <input placeholder="4" type="text" class="form-control" id="txtNumberOfPassengers">
+                </div>
+                <div class="form-group ml-3">
+                    <label class="font-weight-bold" for="txtNumberOfPassengers">Year</label>
+                    <input placeholder="2019" type="text" class="form-control" id="txtYear">
+                </div>
+
+                <!--                /////////////////CarType//////////////////////////-->
+                <div class="ml-3 mt-2">
+                    <label class="font-weight-bold">Car Type</label>
+                    <br>
+
+                    <div>
+
+                        <label class="radio"><input checked id="ctype1" name="ctype" type="radio" value="General">General</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label class="radio"><input checked id="ctype2" name="ctype" type="radio" value="Premium">Premium</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label class="radio"><input checked id="ctype3" name="ctype" type="radio" value="Luxury">Luxury</label>
+
+                    </div>
+                </div>
+                <!--                /////////////////////////Transmission type./////////////////-->
+                <div class="ml-3 mt-2">
+                    <label class="font-weight-bold"> Transmission Type</label>
+                    <br>
+                    <div>
+                        <form class="controls">
+                            <label class="radio"><input checked id="ttype1" name="ttype" type="radio" value="Manual">Manual</label>
+                            &nbsp;&nbsp;&nbsp;
+                            <label class="radio"><input checked id="ttype2" name="ttype" type="radio" value="Auto">Auto</label>
+                            &nbsp;&nbsp;&nbsp;
+                        </form>
+                    </div>
+                </div>
+                <!--                //////////////////fuelType//////////////////////////////-->
+                <div class="ml-3 mt-2">
+                    <label class="font-weight-bold"> Fuel Type</label>
+                    <br>
+                    <div>
+                        <form class="controls">
+                            <label class="radio">
+                                <input checked id="ftype1" name="ftype" type="radio" value="Diesel">Diesel</label>
+                            &nbsp;&nbsp;&nbsp;
+                            <label class="radio">
+                                <input checked id="ftype2" name="ftype" type="radio" value="Petrol">Petrol</label>
+                            &nbsp;&nbsp;&nbsp;
+                        </form>
+                    </div>
+                </div>
+                <!--                ///////////////Prices for the rent durations.////////////////-->
+                <div class="ml-3 mt-2">
+                    <label class="font-weight-bold"> Prices for the rent durations.</label>
+                    <br>
+                    <div>
+                        <form class="controls">
+                            <label class="radio">
+                                <input  checked id="ptype1" name="prent" type="radio" value="DailyRate">DailyRate</label>
+                            &nbsp;&nbsp;&nbsp;
+                            <label class="radio">
+                                <input checked id="ptype2" name="prent" type="radio" value="HourlyRate">HourlyRate</label>
+                            &nbsp;&nbsp;&nbsp;
+                        </form>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-lg-6 mt-3 ">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="txtBrand">Brand</label>
+                    <input placeholder="Toyota" type="text" class="form-control" id="txtBrand">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="txtColor">Color</label>
+                    <input placeholder="white" type="text" class="form-control" id="txtColor">
+                </div>
+                <!--                <div class="form-group ">-->
+                <!--                    <label class="font-weight-bold" for="txtFreeMeileage">Free mileage for the price and duration.</label>-->
+                <!--                    <input type="text" class="form-control" id="txtFreeMeileage">-->
+                <!--                </div>-->
+                <div class="form-group ">
+                    <label class="font-weight-bold" for="txtExtramKmPrice">Price for extra KM.</label>
+                    <input placeholder="120" type="text" class="form-control" id="txtExtramKmPrice">
+                </div>
+
+<!--                <div>-->
+<!--                    <img id="img" style="width: 300px" src="assests/SONATA-hero-option2-764A4983-640x354.jpg">-->
+<!--                </div>-->
+                <div class="custom-file mt-3">
+                    <input type="file" name="file" class="custom-file-input" id="validatedCustomFile" required>
+                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+<!--                    <p>-->
+<!--                        <button  id="btnFile" type="button" class=" btn btn-indigo"><i  class="fas fa-backward green-text pr-3" aria-hidden="true"></i>Upload </button>-->
+<!--                    </p>-->
+
+                </div>
+
+
+                <br>
+
+            <div>
+                <div class="mt-5 mb-3">
+                    <button  id="btnSave" type="button" class="btn btn-primary"><i  class="fas fa-cart-plus white-text pr-3" aria-hidden="true"></i>Save &nbsp;&nbsp;</button>
+                    &nbsp<br>
+                    <button id="btnUpdate" type="button" class="btn btn-success  align-items-sm-center"><i  class="fas fa-wrench white-text pr-3" aria-hidden="true"></i>Update</button>
+                    &nbsp
+                    <a href="#"><button id="btnrefresh " type="button" class="btn btn-orange">&nbsp;<i  class="fas fa-redo white-text pr-3" aria-hidden="true"></i>Refresh  </button>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+</form>
+<!--///////////////////////////////manageformend////////////////////////////////////-->
+
+<!--//////////////////view table//////////////////////////////////////////////-->
+<div id="viewcar" class="container-fluid">
+
+    <table id="tblcar" class="mt-3 table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Rid</th>
+            <th>brand</th>
+            <th>type</th>
+            <th>N/pasenger</th>
+            <th>T/type</th>
+            <th>F/type</th>
+            <th>P/R/Duration</th>
+            <th>P/E/Km</th>
+            <th>Color</th>
+            <th>Year</th>
+            <th>Available</th>
+            <th>image</th>
+            <th>remove</th>
+
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        </tbody>
+    </table>
+</div>
+<!--//////////////////view table end//////////////////////////////////////////////-->
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="MDB/js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="MDB/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="MDB/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="MDB/js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript"></script>
+
+<script src="js/ManageCar.js"></script>
+</body>
+</html>
